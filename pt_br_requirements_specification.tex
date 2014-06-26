@@ -1,0 +1,158 @@
+%
+% Portuguese-BR vertion
+% 
+\documentclass{article}
+
+\usepackage{ipprocess}
+% Use longtable if you want big tables to split over multiple pages.
+% \usepackage{longtable}
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc}
+\pagestyle{fancy}
+\usepackage{libertine}
+
+\sloppy
+
+\title{<Título do Projeto>}
+
+\graphicspath{{./pictures/}} % Pictures dir
+\makeindex
+\begin{document}
+
+\capa{<versão>}{<mês>}{<ano>}{<Título do Projeto>}{<Título do Documento>}{<Instituição>}
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Revision History
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{\center Histórico de Revisões}
+  \vspace*{1cm}
+  \begin{table}[ht]
+    \centering
+    \begin{tabular}[pos]{|m{2cm} | m{7.2cm} | m{3.8cm}|} 
+      \hline
+      \cellcolor[gray]{0.9}
+      \textbf{Date} & \cellcolor[gray]{0.9}\textbf{Description} & \cellcolor[gray]{0.9}\textbf{Author(s)}\\ \hline
+      \hline
+      \small xx/xx/xxxx & \small <Descrição> & \small <Autor(es)> \\ \hline      
+      \small xx/xx/xxxx &
+      \begin{small}
+        \begin{itemize}
+          \item Exemplo de;
+          \item Revisões em lista;
+        \end{itemize}
+      \end{small} & \small <Autor(es)> \\ \hline 
+    \end{tabular}
+  \end{table}
+
+\newpage
+
+% TOC instantiation
+\tableofcontents
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Document main content
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introdução}
+
+\subsection{Visão Geral do Documento}
+  \begin{itemize}
+   \item \textbf{Requisitos funcionais -} lista de todos os requisitos funcionais.
+   \item \textbf{Requisitos não funcionais -} lista de todos os requisitos não funcionais.
+   \item \textbf{Dependências -} conjunto de dependências de IP-cores previstos.
+   \item \textbf{Notas -} apresenta a lista de notas apresentadas ao longo do documento.
+   \item \textbf{Referências -} lista de todos os textos referenciados nesse documento.
+  \end{itemize}
+
+  \subsection{Acrônimos e Abreviações}
+  
+  \FloatBarrier
+  \begin{table}[H]
+    \begin{center}
+      \begin{tabular}[pos]{|m{5cm} | m{9cm}|} 
+        \hline
+        \cellcolor[gray]{0.9}\textbf{Termo} & \cellcolor[gray]{0.9}\textbf{Descrição} \\ \hline
+        Requisitos Funcionais & Requisitos de hardware que compõem os módulos, descrevendo as ações que o mesmo deve estar apto a executar. Estas informações são capturadas a partir do desenvolvimento dos casos de uso, que documentam as entradas, os processos e as saídas geradas.  \\ \hline
+        Requisitos Não Funcionais & Requisitos de hardware que compõem os módulos, representando as características que o mesmo deve ter, ou restrições que o mesmo deve operar. Estas características referem-se técnicas, algoritmos, tecnologias e especificidades do Sistema como um todo.  \\ \hline
+        Dependências & Requisitos de reuso de IP-cores, descrevendo as funções que cada um deve exercer. \\ \hline
+      \end{tabular}
+    \end{center}
+  \end{table}  
+
+  \subsection{Prioridades dos Requisitos}
+    Os requisitos apresentados nesse documento são classificados em três categorias.
+
+    \begin{description}
+     \item[Importante:] requisito sem o qual o sistema funciona, porém não como deveria.
+     \item[Essencial:] requisito que deve ser implementado para que o sistema funcione.
+     \item[Desejável:] requisito que não compromete o funcionamento do sistema.
+    \end{description}
+
+\section{Requisitos Funcionais}
+
+  \subsection{Grupo de Requisitos}
+  
+    \begin{functional}
+     \item \textbf{Nome do Requisito}\hrule
+     Descrição breve e objetiva.
+
+     \textbf{Prioridade: Importante}
+
+     \item \textbf{Outro Nome de Requisito}\hrule
+     Descrição breve e objetiva.
+     
+     \textbf{Prioridade: Importante}     
+
+    \end{functional}
+
+  \subsection{Outro Grupo de Requisitos}
+  
+    \begin{functional}
+     \item \textbf{Nome do Requisito}\hrule
+     Descrição breve e objetiva.
+
+     \textbf{Prioridade: Importante}
+
+     \item \textbf{Outro Nome de Requisito}\hrule
+     Descrição breve e objetiva.
+     
+     \textbf{Prioridade: Importante}     
+
+    \end{functional}    
+ 
+\section{Requisitos não Funcionais}
+Esta seção apresenta a lista de Requisitos não Funcionais do projeto.
+
+  \begin{nonfunctional}
+    \setcounter{enumi}{0} % turn it transparent to the writer
+     \item \textbf{Nome do Requisito}\hrule
+     Descrição breve e objetiva.
+
+     \textbf{Prioridade: Importante}
+
+     \item \textbf{Outro Nome de Requisito}\hrule
+     Descrição breve e objetiva.
+     
+     \textbf{Prioridade: Importante}
+  \end{nonfunctional}
+
+\section{Dependências}
+Esta seção apresenta uma lista dos soft IP-cores disponíveis para reuso e que devem ser adotados no desenvolvimento deste projeto.
+
+\textbf{Prioridade: Essencial}
+
+  \begin{dependencies}
+    \item \textbf{Nome do IP-\textit{core}}\hrule
+    Descrição breve e objetiva do IP-\textit{core} e referência à documentação.
+
+    \item \textbf{Outro Nome de IP-\textit{core}}\hrule
+    Descrição breve e objetiva do IP-\textit{core} e referência à documentação.  
+\end{dependencies}  
+
+% Optional bibliography section
+% To use bibliograpy, first provide the ipprocess.bib file on the root folder.
+% \bibliographystyle{ieeetr}
+% \bibliography{ipprocess}
+
+\end{document}

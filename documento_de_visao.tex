@@ -1,0 +1,143 @@
+%
+% Portuguese-BR vertion
+% 
+\documentclass{article}
+
+\usepackage{ipprocess}
+% Use longtable if you want big tables to split over multiple pages.
+% \usepackage{longtable}
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc}
+\pagestyle{fancy}
+\usepackage{libertine}
+
+\sloppy
+
+\title{<Título do Projeto>}
+
+\graphicspath{{./pictures/}} % Pictures dir
+\makeindex
+\begin{document}
+
+\capa{<versão>}{<mês>}{<ano>}{<Título do Projeto>}{<Título do Documento>}{<Instituição>}
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Revision History
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{\center Histórico de Revisões}
+  \vspace*{1cm}
+  \begin{table}[ht]
+    \centering
+    \begin{tabular}[pos]{|m{2cm} | m{7.2cm} | m{3.8cm}|} 
+      \hline
+      \cellcolor[gray]{0.9}
+      \textbf{Date} & \cellcolor[gray]{0.9}\textbf{Description} & \cellcolor[gray]{0.9}\textbf{Author(s)}\\ \hline
+      \hline
+      \small xx/xx/xxxx & \small <Descrição> & \small <Autor(es)> \\ \hline      
+      \small xx/xx/xxxx &
+      \begin{small}
+        \begin{itemize}
+          \item Exemplo de;
+          \item Revisões em lista;
+        \end{itemize}
+      \end{small} & \small <Autor(es)> \\ \hline 
+    \end{tabular}
+  \end{table}
+
+\newpage
+
+% TOC instantiation
+\tableofcontents
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Document main content
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introdução}
+
+\subsection{Propósito}
+
+\subsection{Escopo}
+    
+\subsection{Acreônimos e Abreviações}
+  
+  \FloatBarrier
+  \begin{table}[H]
+    \begin{center} \label{tab:definitions}
+      \begin{tabular}[pos]{|m{2cm} | m{9cm}|} 
+        \hline
+        \cellcolor[gray]{0.9}\textbf{Acronym} & \cellcolor[gray]{0.9}\textbf{Description} \\ \hline
+        RISC & Reduced Instruction Set Computer \\ \hline
+        GPR & General Purpose Registers \\ \hline
+        FPGA & Field Gate Programmable Array \\ \hline
+      \end{tabular}
+    \end{center}
+  \end{table}
+  
+
+\section{Posicionamento}
+\subsection{Oportunidade de Negócios}
+
+\subsection{Descrição do Problema}
+
+\subsection{Sentença de Posição do Produto}
+
+\section{Equipe de Projeto}
+\subsection{Stakeholders}
+  \FloatBarrier
+  \begin{table}[H]
+    \begin{center} \label{tab:definitions}
+      \begin{tabular}[pos]{|m{4cm} | m{5cm}| m{6cm} |} 
+        \hline
+        \cellcolor[gray]{0.9}\textbf{Nome} & \cellcolor[gray]{0.9}\textbf{Descrição} & \cellcolor[gray]{0.9}\textbf{Responsabilidades}\\ \hline
+         & & \\ \hline
+       
+      \end{tabular}
+    \end{center}
+  \end{table}
+\subsection{Usuários}    
+
+  \FloatBarrier
+  \begin{table}[H]
+    \begin{center} \label{tab:definitions}
+      \begin{tabular}[pos]{|m{6cm} | m{9cm}|} 
+        \hline
+        \cellcolor[gray]{0.9}\textbf{Nome/Papel/Contato} &\cellcolor[gray]{0.9}\textbf{Responsabilidades}\\ \hline
+        <Nome> \newline 
+        \textbf{<Papel>} \newline 
+        <Contato> & \\ \hline
+       
+      \end{tabular}
+    \end{center}
+  \end{table}
+
+\section{Documentos}
+  
+  \begin{enumerate}
+  \item \textbf{Título do documento:} Descrição breve do conteúdo do documento.
+  \end{enumerate}
+
+\section{Visão Geral do Produto}
+\subsection{Perspectiva do Produto}
+
+\subsection{Características}
+
+\subsection{Licenças}
+
+\subsection{Entrega e Instalação}
+
+\subsection{Dependências e Restrições}
+
+\section{Outros Requisitos do Produto}
+
+\subsection{Padrões Aplicados}
+
+\subsection{Requisitos de Hardware e Software}
+
+% Optional bibliography section
+% To use bibliograpy, first provide the ipprocess.bib file on the root folder.
+% \bibliographystyle{ieeetr}
+% \bibliography{ipprocess}
+
+\end{document}

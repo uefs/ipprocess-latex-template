@@ -11,18 +11,22 @@
 \usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
 \usepackage{color}
 \usepackage{paralist}
-\usepackage{graphicx,url}
+\usepackage{graphicx}
+\usepackage{url}
+% \usepackage{array}
 \usepackage{array}
-\usepackage{array,ragged2e}
+\usepackage{ragged2e}
+\usepackage{sectsty}
 \usepackage{float}
 \usepackage{placeins}
 \usepackage{subcaption}
 \usepackage{epstopdf}
-
-\usepackage[table]{xcolor}
-\RequirePackage{fancyhdr}
-\usepackage{enumitem} % load the package
+%\usepackage[table]{xcolor}
+\RequirePackage{fancyhdr} 
+\usepackage{enumitem} % load this package for custom enumerate items
 \fancyhf{}
+\pagestyle{fancy}
+
 
 \usepackage{endnotes}
 \let\footnote=\endnote
@@ -39,14 +43,8 @@
 \parskip   6pt
 
 \flushbottom
-\renewcommand{\arraystretch}{1.2}
-
-\renewcommand\thesection{\color{gray}\arabic{section}}
-\usepackage{sectsty}
-\sectionfont{\LARGE}
-\subsectionfont{\Large}
-\subsubsectionfont{\normalfont\em}
-\paragraphfont{\large}
+% set table internal padding
+\renewcommand{\arraystretch}{1.5}
 
 % captions
 %\usepackage[font=sf, labelfont={sf,bf}, margin=1cm]{caption}
@@ -74,10 +72,10 @@
 \renewcommand{\and}{, }
 
 \renewcommand\tableofcontents{%
-	\vspace*{1.5cm}
-	\section*{\centering\MakeUppercase\contentsname}%
-	\vspace*{2cm}
-	\@starttoc{toc}%
+  \vspace*{1.5cm}
+  \section*{\centering\MakeUppercase\contentsname}%
+  \vspace*{2cm}
+  \@starttoc{toc}%
 }
 
 % to avoid [...] in the bibliography
@@ -110,6 +108,44 @@
        {\@latex@warning{Empty `thebibliography' environment}}%
       \endlist}
 
+% front cover
+\providecommand{\ipPROCESSDocumentTitle}{}
+\newcommand{\DocumentTitle}[1]{\renewcommand{\ipPROCESSDocumentTitle}{#1}}
+
+\providecommand{\ipPROCESSProject}{}
+\newcommand{\Project}[1]{\renewcommand{\ipPROCESSProject}{#1}}
+
+\providecommand{\ipPROCESSOrganization}{}
+\newcommand{\Organization}[1]{\renewcommand{\ipPROCESSOrganization}{#1}}
+
+\providecommand{\ipPROCESSVersion}{}
+\newcommand{\Version}[1]{\renewcommand{\ipPROCESSVersion}{#1}}
+
+\newcommand{\capa}
+{
+  \begin{titlepage}
+    \vspace*{9cm}
+    \begin{figure}[h]
+      \begin{flushright}
+        \includegraphics[width=0.4\linewidth]{pictures/ipprocess.png}
+      \end{flushright}
+    \end{figure}
+    \begin{flushright}
+      \uppercase{\textbf{\ipPROCESSDocumentTitle}}\par
+      \ipPROCESSProject \par
+      \vspace*{3.5cm}
+      \ipPROCESSOrganization \par
+      \textbf{\ipPROCESSVersion} \par
+    \end{flushright}
+    \vspace*{4cm}
+    \centering
+  \end{titlepage}
+  
+  \rhead{\includegraphics[width=0.7\linewidth]{pictures/header.png}}
+  \lfoot{\hrulefill \\ \small\ipPROCESSDocumentTitle}
+  \cfoot{\hrulefill \\ \small\centering\textbf{\ipPROCESSOrganization}}
+  \rfoot{\hrulefill \\ \small\thepage}
+}
 
 % itens
 %\setlength\leftmargini   {1.27cm}
@@ -136,22 +172,32 @@
               \topsep    0\p@ \@plus\p@\@minus\p@
               \parsep    \z@
               \partopsep \p@ \@plus\z@ \@minus\p@}
-
+% set new spacing
+\newlength{\wideitemsep}
+\setlength{\wideitemsep}{\itemsep}
+\addtolength{\wideitemsep}{10pt}
+\let\olditem\item
+\renewcommand{\item}{\setlength{\itemsep}{\wideitemsep}\olditem}
+% \setlist[description,1]{leftmargin=\dimexpr 26pt-.5in} % set item identation
               
 
 % sections
+% set color for section numbering
+\renewcommand\thesection{\color{gray}\arabic{section}}
 \renewcommand\section{\@startsection{section}{1}{\z@}%
                        {-6\p@ \@plus -4\p@ \@minus -4\p@}%
                        {0\p@ \@plus 4\p@ \@minus 4\p@}%
                        {\large\XIIIPT\bfseries\boldmath
-                        \rightskip=\z@ \@plus 8em\pretolerance=10000 }}
+                        \rightskip=\z@ \@plus 8em\pretolerance=10000 \vspace{10pt}}}
 
 \renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
                        {-6\p@ \@plus -4\p@ \@minus -4\p@}%
                        {0\p@ \@plus 4\p@ \@minus 4\p@}%
                        {\normalfont\normalsize\bfseries\boldmath
                         \rightskip=\z@ \@plus 8em\pretolerance=10000 }}
-
+%\subsectionfont{\Large}
+\subsubsectionfont{\normalfont\em}
+\paragraphfont{\large}
 %\renewcommand{\thesection}{\arabic{section}.}
 %\renewcommand{\thesubsection}{\thesection\arabic{subsection}.}
 %\renewcommand{\thesubsubsection}{\thesubsection\arabic{subsubsection}.}
@@ -209,81 +255,60 @@
 
 \newcommand{\simpletitle}[1]%
 {%
-	\vspace*{0.5cm}
-	\textbf{#1}
-	\newline
+  \vspace*{0.5cm}
+  \textbf{#1}
+  \newline
 }%
       
-\newcommand{\capa}[6]
-{
-
-	\begin{titlepage}
-	      \vspace*{9cm}
-	      \begin{figure}[h]
-		\begin{flushright}
-		    \includegraphics[width=0.4\linewidth]{pictures/ipprocess.png}
-		\end{flushright}
-	      \end{figure}
-	      \begin{flushright}
-		\uppercase{\textbf{#5}}\par
-		\@title \par
-		\vspace*{3.5cm}
-		#6 \par
-		\textbf{Version: #1} \par
-	      \end{flushright}
-	      \vspace*{4cm}
-	      \centering
-	     % \textbf{#2, #3}
-	\end{titlepage}
-	
-	\rhead{\includegraphics[width=0.7\linewidth]{pictures/header.png}}
-	\lfoot{\hrulefill \\ \small#4}
-	\cfoot{\hrulefill \\ \small\centering\textbf{#5}}
-	\rfoot{\hrulefill \\ \small\thepage}
-}
+%%%% Enumerate custom commands
 
 \newenvironment{mainflow}
 {\begin{enumerate}
-	\renewcommand{\labelenumi}{\bfseries\color{gray} P\arabic{enumi}. }
+  \renewcommand{\labelenumi}{\bfseries\color{gray} P\arabic{enumi}. }
   \setlength{\itemsep}{1pt}
   \setlength{\parskip}{0pt}
-  \setlength{\parsep}{0pt}}
+  \setlength{\parsep}{0pt}
+  \setlength{\itemindent}{27pt}}
 {\end{enumerate}}
 
 \newcommand{\litem}[1]{\item #1\begin{center}\rule{0.8\textwidth}{0.4pt}\end{center}}
 
 \newenvironment{secondaryflow}
 {\begin{enumerate}
-	\renewcommand{\labelenumi}{\bfseries\color{gray} [SF\arabic{enumi}] }
-	\renewcommand{\labelenumii}{\bfseries\color{gray} \arabic{enumii}. }
+  \renewcommand{\labelenumi}{\bfseries\color{gray} [SF\arabic{enumi}] }
+  \renewcommand{\labelenumii}{\bfseries\color{gray} \arabic{enumii}. }
   \setlength{\itemsep}{1pt}
   \setlength{\parskip}{0pt}
-  \setlength{\parsep}{0pt}}	
+  \setlength{\parsep}{0pt}
+  \setlength{\itemindent}{27pt}}
 {\end{enumerate}}
 
 \newenvironment{functional}
-{\begin{enumerate}[resume*]
-	\renewcommand{\labelenumi}{\bfseries\color{gray} [FR\arabic{enumi}] }
-	\renewcommand{\labelenumii}{\bfseries\color{gray} \arabic{enumi}. }
+{\begin{enumerate}
+  \renewcommand{\labelenumi}{\bfseries\color{gray} [FR\thesubsection\arabic{enumi}] }
+  \renewcommand{\labelenumii}{\bfseries\color{gray} \arabic{enumi}. }
   \setlength{\itemsep}{15pt}
   \setlength{\parskip}{10pt}
-  \setlength{\parsep}{0pt}}	
+  \setlength{\parsep}{0pt}
+  \setlength{\itemindent}{27pt}}  
 {\end{enumerate}}
 
 \newenvironment{nonfunctional}
 {\begin{enumerate}
-	\renewcommand{\labelenumi}{\bfseries\color{gray} [NFR\arabic{enumi}] }
-	\renewcommand{\labelenumii}{\bfseries\color{gray} \arabic{enumi}. }
+  \renewcommand{\labelenumi}{\bfseries\color{gray} [NFR\arabic{enumi}] }
+  \renewcommand{\labelenumii}{\bfseries\color{gray} \arabic{enumi}. }
   \setlength{\itemsep}{15pt}
   \setlength{\parskip}{10pt}
-  \setlength{\parsep}{0pt}}	
+  \setlength{\parsep}{0pt}
+  \setlength{\itemindent}{22pt}}
 {\end{enumerate}}
 
 \newenvironment{dependencies}
 {\begin{enumerate}
-	\renewcommand{\labelenumi}{\bfseries\color{gray} [D\arabic{enumi}] }
-	\renewcommand{\labelenumii}{\bfseries\color{gray} \arabic{enumi}. }
+  \renewcommand{\labelenumi}{\bfseries\color{gray} [D\arabic{enumi}] }
+  \renewcommand{\labelenumii}{\bfseries\color{gray} \arabic{enumi}. }
   \setlength{\itemsep}{15pt}
   \setlength{\parskip}{10pt}
-  \setlength{\parsep}{0pt}}	
+  \setlength{\parsep}{0pt}
+  \setlength{\itemindent}{7pt}}
 {\end{enumerate}}

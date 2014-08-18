@@ -7,9 +7,7 @@
 % Use longtable if you want big tables to split over multiple pages.
 % \usepackage{longtable}
 \usepackage[utf8]{inputenc} 
-\usepackage[T1]{fontenc}
-\usepackage{libertine}
-\pagestyle{fancy}
+\usepackage[brazil]{babel} % Uncomment for portuguese
 
 \sloppy
 
@@ -68,89 +66,104 @@
    \item \textbf{Referências -} lista de todos os textos referenciados nesse documento.
   \end{itemize}
 
+  % inicio das definições do documento
+  \subsection{Definições}
+    \FloatBarrier
+    \begin{table}[H]
+      \begin{center}
+        \begin{tabular}[pos]{|m{5cm} | m{9cm}|} 
+          \hline
+          \cellcolor[gray]{0.9}\textbf{Termo} & \cellcolor[gray]{0.9}\textbf{Descrição} \\ \hline
+          Requisitos Funcionais & Requisitos de hardware que compõem os módulos, descrevendo as ações que o mesmo deve estar apto a executar. Estas informações são capturadas a partir do desenvolvimento dos casos de uso, que documentam as entradas, os processos e as saídas geradas.  \\ \hline
+          Requisitos Não Funcionais & Requisitos de hardware que compõem os módulos, representando as características que o mesmo deve ter, ou restrições que o mesmo deve operar. Estas características referem-se técnicas, algoritmos, tecnologias e especificidades do Sistema como um todo.  \\ \hline
+          Dependências & Requisitos de reuso de IP-cores, descrevendo as funções que cada um deve exercer. \\ \hline
+        \end{tabular}
+      \end{center}
+    \end{table}  
+  % fim
+
+  % inicio da tabela de acronimos e abreviacoes do documento
   \subsection{Acrônimos e Abreviações}
-  
-  \FloatBarrier
-  \begin{table}[H]
-    \begin{center}
-      \begin{tabular}[pos]{|m{5cm} | m{9cm}|} 
-        \hline
-        \cellcolor[gray]{0.9}\textbf{Termo} & \cellcolor[gray]{0.9}\textbf{Descrição} \\ \hline
-        Requisitos Funcionais & Requisitos de hardware que compõem os módulos, descrevendo as ações que o mesmo deve estar apto a executar. Estas informações são capturadas a partir do desenvolvimento dos casos de uso, que documentam as entradas, os processos e as saídas geradas.  \\ \hline
-        Requisitos Não Funcionais & Requisitos de hardware que compõem os módulos, representando as características que o mesmo deve ter, ou restrições que o mesmo deve operar. Estas características referem-se técnicas, algoritmos, tecnologias e especificidades do Sistema como um todo.  \\ \hline
-        Dependências & Requisitos de reuso de IP-cores, descrevendo as funções que cada um deve exercer. \\ \hline
-      \end{tabular}
-    \end{center}
-  \end{table}  
+    \FloatBarrier
+    \begin{table}[H]
+      \begin{center}
+        \begin{tabular}[pos]{|m{2cm} | m{12cm}|} 
+          \hline
+          \cellcolor[gray]{0.9}\textbf{Sigla} & \cellcolor[gray]{0.9}\textbf{Descrição} \\ \hline
+          FR      & Requisito Funcional  \\ \hline
+          NFR     & Requisito Não Funcional  \\ \hline
+          D       & Dependência  \\ \hline
+        \end{tabular}
+      \end{center}
+    \end{table}  
+  % fim
 
+  % inicio da descriao de prioridades de requisitos
   \subsection{Prioridades dos Requisitos}
-    Os requisitos apresentados nesse documento são classificados em três categorias.
+    \FloatBarrier
+    \begin{table}[H]
+      \begin{center}
+        \begin{tabular}[pos]{|m{2cm} | m{12cm}|} 
+          \hline
+          \cellcolor[gray]{0.9}\textbf{Prioridade} & \cellcolor[gray]{0.9}\textbf{Característica} \\ \hline
+          Importante      & Requisito sem o qual o sistema funciona, porém não como deveria.  \\ \hline
+          Essencial       & Requisito que deve ser implementado para que o sistema funcione.  \\ \hline
+          Desejável       & Requisito que não compromete o funcionamento do sistema.  \\ \hline
+        \end{tabular}
+      \end{center}
+    \end{table}  
+  % fim
 
-    \begin{description}
-     \item[Importante:] requisito sem o qual o sistema funciona, porém não como deveria.
-     \item[Essencial:] requisito que deve ser implementado para que o sistema funcione.
-     \item[Desejável:] requisito que não compromete o funcionamento do sistema.
-    \end{description}
-
-\section{Requisitos Funcionais}
-
-  \subsection{Grupo de Requisitos}
-  
+  % inicio dos requisitos funcionais
+  \section{Requisitos Funcionais}
+    \subsection{Grupo Funcional de Requisitos}
     \begin{functional}
-     \item \textbf{Nome do Requisito}\hrule
-     Descrição breve e objetiva.
-
-     \textbf{Prioridade: Importante}
-
-     \item \textbf{Outro Nome de Requisito}\hrule
-     Descrição breve e objetiva.
-     
-     \textbf{Prioridade: Importante}     
-
+     % \requirement{name}{description}{priority}
+     \requirement
+      {Nome do Requisito}
+      {Descrição breve e objetiva.}
+      {Importante}
+    
+     \requirement
+      {Nome do Requisito}
+      {Descrição breve e objetiva.}
+      {Importante}
     \end{functional}
 
   \subsection{Outro Grupo de Requisitos}
   
     \begin{functional}
-     \item \textbf{Nome do Requisito}\hrule
-     Descrição breve e objetiva.
+      \requirement{Nome do Requisito}{Descrição breve e objetiva.}{Importante}
 
-     \textbf{Prioridade: Importante}
-
-     \item \textbf{Outro Nome de Requisito}\hrule
-     Descrição breve e objetiva.
-     
-     \textbf{Prioridade: Importante}     
+      \requirement
+      {Nome do Requisito}
+      {Descrição breve e objetiva.}
+      {Importante}
 
     \end{functional}    
  
 \section{Requisitos não Funcionais}
-Esta seção apresenta a lista de Requisitos não Funcionais do projeto.
+% Esta seção apresenta a lista de Requisitos não Funcionais do projeto.
 
   \begin{nonfunctional}
-    \setcounter{enumi}{0} % turn it transparent to the writer
-     \item \textbf{Nome do Requisito}\hrule
-     Descrição breve e objetiva.
+    \requirement
+    {Nome do Requisito}
+    {Descrição breve e objetiva.}
+    {Importante}
 
-     \textbf{Prioridade: Importante}
-
-     \item \textbf{Outro Nome de Requisito}\hrule
-     Descrição breve e objetiva.
-     
-     \textbf{Prioridade: Importante}
+    \requirement
+    {Nome do Requisito}
+    {Descrição breve e objetiva.}
+    {Importante}
   \end{nonfunctional}
 
 \section{Dependências}
-Esta seção apresenta uma lista dos soft IP-cores disponíveis para reuso e que devem ser adotados no desenvolvimento deste projeto.
-
-\textbf{Prioridade: Essencial}
+  % Esta seção apresenta uma lista dos IP-cores disponíveis % para reuso e que devem ser adotados no desenvolvimento % deste projeto.
 
   \begin{dependencies}
-    \item \textbf{Nome do IP-\textit{core}}\hrule
-    Descrição breve e objetiva do IP-\textit{core} e referência à documentação.
+    \dependency{Nome do IP-\textit{core}}{Descrição breve e objetiva do IP-\textit{core} e referência à documentação.}
 
-    \item \textbf{Outro Nome de IP-\textit{core}}\hrule
-    Descrição breve e objetiva do IP-\textit{core} e referência à documentação.  
+    \dependency{Nome do IP-\textit{core}}{Descrição breve e objetiva do IP-\textit{core} e referência à documentação.}
 \end{dependencies}  
 
 % Optional bibliography section

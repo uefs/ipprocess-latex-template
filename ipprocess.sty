@@ -183,7 +183,7 @@
                        {\large\XIIIPT\bfseries\boldmath
                         \rightskip=\z@ \@plus 8em\pretolerance=10000 \vspace{10pt}}}
 
-\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+\renewcommand\subsection{\@startsection{subsection}{0}{\z@}%
                        {-6\p@ \@plus -4\p@ \@minus -4\p@}%
                        {0\p@ \@plus 4\p@ \@minus 4\p@}%
                        {\normalfont\normalsize\bfseries\boldmath
@@ -225,15 +225,22 @@
   \vspace*{0.3cm}
 }
 
+\usepackage{fmtcount}% http://ctan.org/pkg/fmtcount
 \newcommand{\usecase}[1]
 {
   \stepcounter{usecasei}
-  \subsection{[UC\arabic{usecasei}] #1}
+
+  \subsection{\color{gray}[UC~\padzeroes[3]{\decimal{usecasei}}]~\color{black} #1}
 }
 
 \newcommand{\actors}
 {
   \subsubsection*{Atores}
+}
+
+\newcommand{\actor}[2]
+{
+  \item[#1 -- ] #2
 }
 
 \newcommand{\preconditions}

@@ -7,19 +7,20 @@
 % Use longtable if you want big tables to split over multiple pages.
 % \usepackage{longtable}
 \usepackage[utf8]{inputenc} 
-\usepackage[T1]{fontenc}
-\pagestyle{fancy}
-\usepackage{libertine}
+\usepackage[brazil]{babel} % Uncomment for portuguese
 
 \sloppy
-
-\title{<Título do Projeto>}
 
 \graphicspath{{./pictures/}} % Pictures dir
 \makeindex
 \begin{document}
 
-\capa{<versão>}{<mês>}{<ano>}{<Título do Projeto>}{<Título do Documento>}{<Instituição>}
+\DocumentTitle{Documento de Casos de Uso}
+\Project{Título do Projeto}
+\Organization{Título da Instituição}
+\Version{Build 2.0a}
+
+\capa
 \newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -90,13 +91,13 @@
     \begin{subfigure}[b]{0.3\textwidth}
       \centering
       \includegraphics[width=0.6\textwidth]{ipcore_exemple.png}
-      \caption{Instância múltipla de um IP-\textit{core} ou módulo do sistema.}
+      \caption{Instância múltipla de um IP.}
       \label{fig:ipcore_exemple}
     \end{subfigure}
     \begin{subfigure}[b]{0.3\textwidth}
       \centering
       \includegraphics[width=0.6\textwidth]{ipcore_single_exemple.png}
-      \caption{Instância de um IP-\textit{core} ou módulo do sistema.}
+      \caption{Instância de um IP.}
       \label{fig:ipcore_single_exemple}
     \end{subfigure}
     \caption{Simbologia utilizada na implementação dos Casos de Uso.}
@@ -109,7 +110,6 @@
   \FloatBarrier
     \begin{table}[H] 
       \begin{center}
-        \caption{Definições, acrônimos e abreviações.}
         \begin{tabular}[pos]{|m{2cm} | m{8cm}|} 
           \hline 
           \cellcolor[gray]{0.9}\textbf{Termo} & \cellcolor[gray]{0.9}\textbf{Descrição} \\ \hline
@@ -130,58 +130,45 @@
   \section{Casos de Usos}
   Esta sessão apresenta o conjunto de UC realizados para a implementação do projeto \textit{Grand Prix} (desenvolvimento de um jogo de corrida de carros em FPGA). As sessões a seguir foram divididas e nomeada utilizando a nomenclatura abreviada [UC (NÚMERO DO UC)] seguido de uma breve descrição em forma de título.
 
-  \subsection{[UC XXX] Título do Caso de Uso}
-  % Apresentar aqui a descrição geral para o caso de uso.
+  \usecase{Título do Caso de Uso}
+  Apresentar aqui a descrição geral para o caso de uso.
   
-  \subsubsection*{Atores}
-  \begin{description}
-   \item[Nome do Ator:] descrição do ator.
-  \end{description}
+  \actors
+    \begin{description}
+     \item[Nome do Ator:] descrição do ator.
+    \end{description}
   
-  \subsubsection*{Pré-condições}  
-  \begin{itemize}
-   \item Ex.: Atender aos requisito funcional [RF04];
-   \item Mais uma Pré-condição;
-  \end{itemize}
+  \preconditions 
+    \begin{itemize}
+     \item Ex.: Atender aos requisito funcional [RF04];
+     \item Mais uma Pré-condição;
+    \end{itemize}
 
-  \subsubsection*{Pós-condições}
-  \begin{itemize}
-   \item Definir aqui as pós-condições
-  \end{itemize}
+  \postconditions
+    \begin{itemize}
+     \item Definir aqui as pós-condições
+    \end{itemize}
   
-  \subsubsection*{Diagrama de Caso de Uso}
+  \ucdiagram{./pictures/uc_exemple.png}
   
-  % \FloatBarrier
-  % \begin{figure}[H]
-  %   \centering
-  %   \includegraphics[width=\textwidth]{diagrams/usecases/SpeedControl.png}
-  %   \caption{Diagrama de caso de uso do controle de velocidade.}
-  %   \label{fig:uc_speed}
-  % \end{figure}
-  
-  \subsubsection{\color{black}Fluxo Principal de Eventos}
-  
+  % descricao do fluxo principal de eventos
   \begin{mainflow}
-   \item Descrição da etapa 1;
-   \item Descrição da etapa 2;
-   \item Descrição da etapa 3;
-   \item Descrição da etapa final;
+    \item Descrição da etapa 1;
+    \item Descrição da etapa 2;
+    \item Descrição da etapa 3;
+    \item Descrição da etapa final;
   \end{mainflow}
   
-  \subsubsection{\color{black}Fluxo Secundário: Alternativo}
-    \begin{secondaryflow} 
-      \item \textbf{Título do Fluxo Secundário}
-      \hrule
-        \vspace*{0.3cm}
-        \begin{enumerate}
-          \item Liste aqui as etapas do fluxo secundário;
-        \end{enumerate}
-      \item \textbf{Mais um Fluxo Secundário}
-      \hrule
-        \vspace*{0.3cm}
-        \begin{enumerate}
-          \item Liste aqui as etapas do fluxo secundário;
-        \end{enumerate}
+  % descricao do fluxo secundário (quando existir)
+  \begin{secondaryflow} 
+    \sfitem{Título do Fluxo Secundário}
+    \begin{enumerate}
+      \item Liste aqui as etapas do fluxo secundário;
+    \end{enumerate}
+    \sfitem{Título do Fluxo Secundário}
+    \begin{enumerate}
+      \item Liste aqui as etapas do fluxo secundário;
+    \end{enumerate}
   \end{secondaryflow}  
 
 % Optional bibliography section

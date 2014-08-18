@@ -47,9 +47,9 @@
 
 % captions
 %\usepackage[font=sf, labelfont={sf,bf}, margin=1cm]{caption}
-\RequirePackage[font=normalsize, labelfont={sf,bf}, margin=1cm]{caption}
+\RequirePackage[font={normalsize,bf}, labelfont={sf,bf,color=gray}, margin=1cm]{caption}
 %\setlength{\captionmargin}{0.8cm}
-\renewcommand{\captionfont}{\color{gray}\bfseries}
+%\renewcommand{\captionfont}{\color{gray}\bfseries}
 %\renewcommand{\captionlabeldelim}{.}
 
 % font
@@ -201,6 +201,8 @@
 \newcounter{functionali}
 \newcounter{nonfunctionali}
 \newcounter{dependenciesi}
+\newcounter{usecasei}
+%\setcounter{usecasei}{1}
 
 \newcommand{\requirement}[3]
 {
@@ -217,25 +219,64 @@
   {#2}
 }
 
+\newcommand{\sfitem}[1]
+{
+  \item \textbf{#1} \hrule
+  \vspace*{0.3cm}
+}
+
+\newcommand{\usecase}[1]
+{
+  \stepcounter{usecasei}
+  \subsection{[UC\arabic{usecasei}] #1}
+}
+
+\newcommand{\actors}
+{
+  \subsubsection*{Atores}
+}
+
+\newcommand{\preconditions}
+{
+  \subsubsection*{Pr\'{e}-condi\c{c}\~{o}es} 
+}
+
+\newcommand{\postconditions}
+{
+  \subsubsection*{P\'{o}s-condi\c{c}\~{o}es} 
+}
+
+\newcommand{\ucdiagram}[1]
+{
+  \subsubsection*{Diagrama de Caso de Uso}
+  \FloatBarrier
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{#1}
+  \end{figure}
+}
+
 \newenvironment{mainflow}
-{\begin{enumerate}
+{\subsubsection{Fluxo Principal de Eventos}
+\begin{enumerate}
   \renewcommand{\labelenumi}{\bfseries\color{gray} P\arabic{enumi}. }
   \setlength{\itemsep}{1pt}
   \setlength{\parskip}{0pt}
   \setlength{\parsep}{0pt}
-  \setlength{\itemindent}{27pt}}
+  \setlength{\itemindent}{25pt}}
 {\end{enumerate}}
 
 \newcommand{\litem}[1]{\item #1\begin{center}\rule{0.8\textwidth}{0.4pt}\end{center}}
 
 \newenvironment{secondaryflow}
-{\begin{enumerate}
+{\subsubsection{Fluxo Secundário: Alternativo}
+\begin{enumerate}
   \renewcommand{\labelenumi}{\bfseries\color{gray} [SF\arabic{enumi}] }
   \renewcommand{\labelenumii}{\bfseries\color{gray} \arabic{enumii}. }
   \setlength{\itemsep}{1pt}
   \setlength{\parskip}{0pt}
   \setlength{\parsep}{0pt}
-  \setlength{\itemindent}{27pt}}
+  \setlength{\itemindent}{11pt}}
 {\end{enumerate}}
 
 \newenvironment{functional}

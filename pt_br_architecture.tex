@@ -1,0 +1,140 @@
+%
+% Portuguese-BR vertion
+% 
+\documentclass{report}
+
+\usepackage{ipprocess}
+% Use longtable if you want big tables to split over multiple pages.
+% \usepackage{longtable}
+\usepackage[utf8]{inputenc} 
+\usepackage[brazil]{babel} % Uncomment for portuguese
+
+\sloppy
+
+\graphicspath{{./pictures/}} % Pictures dir
+\makeindex
+\begin{document}
+
+\DocumentTitle{Documento de Arquitetura}
+\Project{Título do Projeto}
+\Organization{Nome da Instituição}
+\Version{Build 2.0a}
+
+\capa
+\newpage
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Revision History
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter*{Histórico de Revisões}
+  \vspace*{1cm}
+  \begin{table}[ht]
+    \centering
+    \begin{tabular}[pos]{|m{2cm} | m{8cm} | m{4cm}|} 
+      \hline
+      \cellcolor[gray]{0.9}
+      \textbf{Date} & \cellcolor[gray]{0.9}\textbf{Descrição} & \cellcolor[gray]{0.9}\textbf{Autor(s)}\\
+      \hline
+      xx/xx/xxxx &  <Descrição> & <Autor(es)> \\ \hline      
+      xx/xx/xxxx &
+      \begin{itemize}
+        \item Exemplo de;
+        \item Revisões em lista;
+      \end{itemize}
+      & <Autor(es)> \\ \hline 
+    \end{tabular}
+  \end{table}
+
+% TOC instantiation
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Document main content
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Introdução}
+  
+  \section{Propósito do Documento}
+  Este documento descreve a arquitetura do projeto \ipPROCESSProject, incluindo especificações do circuitos internos e máquinas de estados de cada componente. Ele também apresenta diagramas de classe, definições de entrada e saída e diagramas de temporização.O principal objetivo deste documento é definir as especificações do projeto \ipPROCESSProject e prover uma visão geral completa do mesmo.
+
+  \noindent \textcolor{red}{\textit{Informações adicionais podem ser incluídas nesta seção. Entretanto, via de regra, ela não deve se extender por muitos parágrafos.}}
+
+  \section{Stakeholders}
+    \FloatBarrier
+    \begin{table}[H] 
+      \begin{center}
+        \begin{tabular}[pos]{|m{6cm} | m{8cm}|} 
+          \hline 
+          \cellcolor[gray]{0.9}\textbf{Nome} & \cellcolor[gray]{0.9}\textbf{Papel/Responsabilidades} \\ \hline
+           &  \\ \hline
+        \end{tabular}
+      \end{center}
+    \end{table} 
+
+\section{Visão Geral do Documento}
+
+O presente documento é apresentado como segue:
+
+  \begin{itemize}
+   \item \textbf{Capítulo 2 --} Este capítulo apresenta uma visão geral da arquitetura, com foco em entrada e saída do sistema e arquitetura geral do mesmo;
+  \end{itemize}
+
+
+  % inicio das definições do documento
+  \section{Definições}
+    \FloatBarrier
+    \begin{table}[H]
+      \begin{center}
+        \begin{tabular}[pos]{|m{5cm} | m{9cm}|} 
+          \hline
+          \cellcolor[gray]{0.9}\textbf{Termo} & \cellcolor[gray]{0.9}\textbf{Descrição} \\ \hline
+                          &                       \\ \hline
+        \end{tabular}
+      \end{center}
+    \end{table}  
+  % fim
+
+  % inicio da tabela de acronimos e abreviacoes do documento
+  \section{Acrônimos e Abreviações}
+    \FloatBarrier
+    \begin{table}[H]
+      \begin{center}
+        \begin{tabular}[pos]{|m{2cm} | m{12cm}|} 
+          \hline
+          \cellcolor[gray]{0.9}\textbf{Sigla} & \cellcolor[gray]{0.9}\textbf{Descrição} \\ \hline
+                &   \\ \hline
+        \end{tabular}
+      \end{center}
+    \end{table}  
+  % fim
+
+\chapter{Visão Geral da Arquitetura}
+
+  \section{Diagrama de Classe}
+
+  \section{Definições de Entrada e Saída}
+
+  \section{Datapath Interno}
+
+% inicio das descrições de arquitetura para cada componente do sistema
+\chapter{Descrição da Arquitetura}
+
+  \section{Nome do Módulo}
+
+    \subsection{Diagrama de Classe}
+
+    \subsection{Definições de Entrada e Saída}
+
+    \subsection{Datapath Interno}
+
+    \subsection{Máquina de Estados}
+
+    \subsection{Temporização}
+
+
+% Optional bibliography section
+% To use bibliograpy, first provide the ipprocess.bib file on the root folder.
+% \bibliographystyle{ieeetr}
+% \bibliography{ipprocess}
+
+\end{document}

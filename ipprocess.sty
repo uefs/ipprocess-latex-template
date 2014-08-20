@@ -2,6 +2,8 @@
 %
 % Created by João Carlos Nunes Bittencourt, june 2011
 % updated agust 2014
+% 
+% Dependencies
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{ipprocess}[2014/08/18]
@@ -64,6 +66,7 @@
 
 % new commands
 \renewcommand\tableofcontents{%
+  \newpage
   \vspace*{1.5cm}
   \section*{\centering\MakeUppercase\contentsname}%
   \vspace*{2cm}
@@ -142,6 +145,7 @@
 \cfoot{\hrulefill \\ \small\centering\textbf{\ipPROCESSOrganization}}
 \rfoot{\hrulefill \\ \small\thepage}
 
+
 % itens
 %\setlength\leftmargini   {1.27cm}
 \setlength\leftmargin    {\leftmargini}
@@ -172,7 +176,7 @@
 \setlength{\wideitemsep}{\itemsep}
 \addtolength{\wideitemsep}{10pt}
 \let\olditem\item
-\renewcommand{\item}{\setlength{\itemsep}{\wideitemsep}\olditem}              
+\renewcommand{\item}{\setlength{\itemsep}{\wideitemsep}\olditem}             
 
 % sections
 % set color for section numbering
@@ -188,13 +192,24 @@
                        {0\p@ \@plus 4\p@ \@minus 4\p@}%
                        {\normalfont\normalsize\bfseries\boldmath
                         \rightskip=\z@ \@plus 8em\pretolerance=10000 }}
-\subsubsectionfont{\normalfont\em}
+\renewcommand\subsubsection{\@startsection{subsubsection}{0}{\z@}%
+                       {-6\p@ \@plus -4\p@ \@minus -4\p@}%
+                       {0\p@ \@plus 4\p@ \@minus 4\p@}%
+                       {\normalfont\normalsize\em\boldmath
+                        \rightskip=\z@ \@plus 8em\pretolerance=10000 }}
+
+\subsubsectionfont{\normalfont\em\flushright}
+
 \paragraphfont{\large}
                         
 \RequirePackage{titlesec}
 \titlelabel{\thetitle.\hspace{1ex}}
 %\titleformat*{\subsubsection}{\normalfont\bfseries\sffamily\color{gray}}
 
+% chapters
+\definecolor{gray75}{gray}{0.75}
+\newcommand{\hsp}{\hspace{20pt}}
+\titleformat{\chapter}[hang]{\vspace{-50pt}\Huge\bfseries}{\thechapter\hsp\textcolor{gray75}{|}\hsp}{0pt}{\Huge\bfseries}
 
 % enumerate custom commands
 % set new counters
